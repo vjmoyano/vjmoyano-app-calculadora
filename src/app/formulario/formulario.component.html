@@ -1,0 +1,37 @@
+<p>Operación suma</p>
+
+  <form action="">
+    <div class="form-group">
+
+      <label for="Operando1">Operando1</label>
+      <input required type="number"  minlength="1" class="form-control" name="Operando1" id="" placeholder="Escribe el primer operando" [(ngModel)]="valor1" #op1="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="Operando2">Operando2</label>
+      <input required type="number" class="form-control" name="Operando2" id="" placeholder="Escribe el segundo operando"[(ngModel)]="valor2" #op2="ngModel">
+
+    </div>
+
+    <div *ngIf="op1.invalid && (op1.dirty || op1.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="op1.errors.required">
+    Operando1 is required.
+  </div>
+
+    </div>
+
+    <div *ngIf="op2.invalid && (op2.dirty || op2.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="op2.errors.required">
+    Operando2 is required.
+  </div>
+
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="op1.invalid || op2.invalid "  class="btn btn-primary" (click)="onSumar()">Sumar</button>
+
+    </div>
+  </form>

@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+
+
+<div>
+  <app-formulario
+  (operacionCreada)="onGuardar($event)"
+  ></app-formulario>
+  <hr>
+  <app-historial
+  *ngFor="let op of valores; let i = index"
+  [operacion]=op
+  [indice] = "i"
+  ></app-historial>
+
+
+</div>
